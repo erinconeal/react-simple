@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import AwesomeComponent from './shared/AwesomeComponent/AwesomeComponent.jsx';
-import PartyList from './shared/PartyList/PartyList.jsx';
+import AwesomeComponent from './components/AwesomeComponent/AwesomeComponent.jsx';
+import PartyList from './components/PartyList/PartyList.jsx';
 
 class App extends React.Component {
     render() {

@@ -7,6 +7,7 @@ const h1Style = {
 }
 class AwesomeComponent extends React.Component {
     constructor(props) {
+        console.log('Making New AwesomeComponent')
         super(props);
     }
 
