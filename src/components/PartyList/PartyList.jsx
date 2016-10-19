@@ -1,50 +1,25 @@
 import React from 'react';
+import {Link, hashHistory} from 'react-router';
+import {addGuest} from '../../redux/party';
+import {connect} from 'react-redux';
+
 import GuestComponent from '../GuestComponent/GuestComponent.jsx';
 import AddGuest from '../AddGuest/AddGuest.jsx';
 
 class PartyList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            theme: 'Batman',
-            guests: [
-                {
-                  key: 1,
-                  name: 'Batman'
-                }, 
-                {
-                    key: 2,
-                    name: 'Commissioner Gordon'
-                }, 
-                {
-                    key: 3,
-                    name: 'Pepperoni'
-                },
-                {
-                    key: 4,
-                    name: 'Ashleigh'
-                }
-            ]
-        }
+        console.log(props);
 
         this.handleAddGuest = this.handleAddGuest.bind(this);
     }
 
     handleAddGuest(guest) {
-        const newGuests = this.state.guests;
-
-        newGuests.push({
-            key: newGuests.length+1,
-            name: guest
-        })
-
-        this.setState({
-            guests: newGuests
-        })
+        this.props.addGuest(guest);
     }
 
     render() {
-        const guestList = this.state.guests.map(function(guest) {
+        const guestList = this.props.guests.map(function(guest) {
             return <GuestComponent 
               key={guest.key}
               guest={guest.name}/>
@@ -53,7 +28,7 @@ class PartyList extends React.Component {
 
         return (
             <div>
-                <h3>This is gonna be a great {this.state.theme} party!</h3>
+                <h3>This is gonna be a great {this.props.theme} party!</h3>
                 <h5>Guest List:</h5>
                 {guestList}
                 <AddGuest 
@@ -63,4 +38,11 @@ class PartyList extends React.Component {
     }
 }
 
-export default PartyList;
+function mapStateToProps(state) {
+    return {
+        guests: state.party.guests,
+        theme: state.party.theme
+    }
+}
+
+export default connect(mapStateToProps, {addGuest})(PartyList);

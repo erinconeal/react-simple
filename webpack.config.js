@@ -11,6 +11,7 @@ module.exports = {
         publicPath: '/public/',
         filename: 'bundle.js'
     },
+    devTool: 'eval-source-map',
     module: {
         loaders: [
             {
@@ -22,6 +23,11 @@ module.exports = {
                 test: /\.css/,
                 include: paths.app,
                 loader: 'style!css'
+            },
+            {
+                test: /\.less/,
+                include: paths.app,
+                loader: 'style!css!less'
             }
         ]
     }

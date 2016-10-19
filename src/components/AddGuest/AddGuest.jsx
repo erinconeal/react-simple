@@ -35,12 +35,17 @@ class AddGuest extends React.Component {
                 value={this.state.text}
                 onChange={this.handleChange}/>
                 <button
-                  onClick={this.handleSubmit}>
+                  onClick={this.handleSubmit}
+                >
                   Add Guest
                 </button>
             </div>
         )
     }
+}
+
+AddGuest.propTypes = {
+    addGuest: React.PropTypes.func.isRequired
 }
 
 export default AddGuest;
