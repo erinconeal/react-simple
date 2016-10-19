@@ -1,7 +1,5 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
-import {addGuest} from '../../redux/party';
-import {connect} from 'react-redux';
 
 import GuestComponent from '../GuestComponent/GuestComponent.jsx';
 import AddGuest from '../AddGuest/AddGuest.jsx';
@@ -11,15 +9,46 @@ class PartyList extends React.Component {
         super(props);
         console.log(props);
 
+        this.state = {
+            theme: 'Batman',
+            guests: [
+                {
+                  key: 1,
+                  name: 'Batman'
+                }, 
+                {
+                    key: 2,
+                    name: 'Commissioner Gordon'
+                }, 
+                {
+                    key: 3,
+                    name: 'Pepperoni'
+                },
+                {
+                    key: 4,
+                    name: 'Ashleigh'
+                }
+            ]
+        }
+
         this.handleAddGuest = this.handleAddGuest.bind(this);
     }
 
     handleAddGuest(guest) {
-        this.props.addGuest(guest);
+        let guestList = this.state.guests.slice();
+
+        guestList.push({
+            key: guestList.length+1,
+            name: guest
+        })
+
+        this.setState({
+            guests: guestList
+        })
     }
 
     render() {
-        const guestList = this.props.guests.map(function(guest) {
+        const guestList = this.state.guests.map(function(guest) {
             return <GuestComponent 
               key={guest.key}
               guest={guest.name}/>
@@ -38,11 +67,5 @@ class PartyList extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        guests: state.party.guests,
-        theme: state.party.theme
-    }
-}
 
-export default connect(mapStateToProps, {addGuest})(PartyList);
+export default PartyList
