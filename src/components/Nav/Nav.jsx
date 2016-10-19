@@ -13,12 +13,12 @@ class Nav extends React.Component {
                             <p>Awesome App!</p>
                         </Link>
                     </div>
-                    <div className="one-third column">
+                    <div className="one-third column nav-title">
                         <Link to="/party">
                             <p>Party!</p>
                         </Link>
                     </div>
-                    <div className="one-third column">
+                    <div className="one-third column nav-title">
                         <Link to="/starwars">
                             <p>Star Wars!</p>
                         </Link>

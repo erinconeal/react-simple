@@ -57,7 +57,7 @@ class PartyList extends React.Component {
 
         return (
             <div>
-                <h3>This is gonna be a great {this.props.theme} party!</h3>
+                <h3>This is gonna be a great {this.state.theme} party!</h3>
                 <h5>Guest List:</h5>
                 {guestList}
                 <AddGuest 

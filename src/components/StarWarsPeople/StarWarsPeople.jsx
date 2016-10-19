@@ -29,11 +29,17 @@ class StarWarsPeople extends React.Component {
             )
         })
         return (
-            <div>
-                <h1>Star Wars People!</h1>
-                <p>{people}</p>
-                <p>This is where our child app will go:</p>
-                {this.props.children}
+            <div className="container">
+                <div className="row">
+                    <h1 className="center">Star Wars People!</h1>
+                    <div className="one-half column">
+                        
+                        {people}
+                    </div>
+                    <div className="one-half column">
+                    {this.props.children}
+                    </div>
+                </div>
             </div>
         )
     }

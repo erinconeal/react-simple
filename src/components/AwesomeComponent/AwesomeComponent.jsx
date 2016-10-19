@@ -41,7 +41,7 @@ class AwesomeComponent extends React.Component {
             />
         ))
         return (
-            <div>
+            <div className="container">
                 <h1 style={h1Style}>DM-13 IS AWESOME!</h1>
                 <div className="row">
                     <div className="one-half column">
