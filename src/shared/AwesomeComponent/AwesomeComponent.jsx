@@ -9,7 +9,7 @@ class AwesomeComponent extends React.Component {
      render() {
         return (
         <div>
-            <h1>AWESOME!</h1>
+            <h1>REACT IS AWESOME!</h1>
         </div>
         );
     }
